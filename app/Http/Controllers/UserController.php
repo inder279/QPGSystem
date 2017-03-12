@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
    public function postSignUp(Request $request){
@@ -26,7 +27,11 @@ class UserController extends Controller
    }
 
    public function postSignIn(Request $request){
-
+      if(Auth::attempt(['email'=> $request['email'] , 'password'=> $request['password']])){
+         //success do something
+      }else{
+         //wrong do something
+      }
    }
 
 }

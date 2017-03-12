@@ -38,7 +38,7 @@ QPG - Login or Signup
     </div>
     <div class="col-md-6">
     <h3> Sign in</h3>
-        <form action="#" method="post">
+        <form action="{{route('signin')}}" method="post">
             <div class="form-group">
             <label for="email">Enter email </label>
             <input class = "form-control" type="text" name="email" id="email">
@@ -49,6 +49,8 @@ QPG - Login or Signup
             <input class = "form-control" type="Password" name="password" id="password">
             </div>
             <button type="Submit" class="btn btn-primary">sign in</button>
+
+            <input type="hidden" name="_token" value = "{{Session::token()}}">
         </form>
     </div>
 </div>
