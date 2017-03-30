@@ -21,7 +21,8 @@ Add Question
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ><a href="#">Subjects <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{route('addQuestion')}}">Add a Question</a></li>
+        <li><a href="{{route('addQuestion')}}">Add Question</a></li>
+        <li><a href="{{route('addQuestion')}}">Add Subject</a></li>
         <li><a href="#">Generate a Paper</a></li>
         <li><a href="{{route('displayUsers')}}">Users</a></li>
       </ul>
@@ -36,12 +37,12 @@ Add Question
 	<section class="row new-post">
 	<div class ="col-md-6 col-md-offset-3">
 	<header><h3>New subject</h3></header>
-		<form action="#" >
+		<form action="{{route('saveSubject')}}" >
 			<div class = "form-group">
 				<label for="email">Add new subject </label>
-            <input class = "form-control" type="text" name="new_subject" id="new_subject">
-            </div>
-			<button type="submit" class="btn btn-primary">Add Subject</button>
+            <input class = "form-control" type="text" name="subject_name" id="subject_name">
+      </div>
+			   <button type="submit" class="btn btn-primary">Add Subject</button>
       <input type="hidden" name="_token" value = "{{Session::token()}}">
 		</form>
 

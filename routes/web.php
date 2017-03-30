@@ -40,6 +40,13 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'signinControl'
         ]);
 
+    //save subject route
+    Route::post('/saveSubject', [
+        'uses'=> 'SubjectController@saveSubject',
+        'as' => 'saveSubject'
+        ]);
+
+
 
     //user view
     Route::get('/user', [
@@ -101,6 +108,20 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/addSubjectView', function () {
         return view('addSubject');
         })->name('addSubjectView');
+
+    //subjects displaying
+    Route::get('/displaySubjects', [
+        'uses'=> 'SubjectController@getSubjects',
+        'as' => 'displaySubjects'
+        ]);
+
+     //add subject view
+    Route::get('/addSubject', function () {
+    return view('addSubject');
+    })->name('addSubject');
+
+    
+
 
     });
 

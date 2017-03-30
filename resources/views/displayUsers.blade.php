@@ -19,7 +19,7 @@ QPG - Admin interface
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ><a href="#">Subjects <span class="sr-only">(current)</span></a></li>
+        <li ><a href="{{route('displaySubjects')}}">Subjects <span class="sr-only">(current)</span></a></li>
         <li><a href="{{route('addQuestion')}}">Add a Question</a></li>
         <li><a href="#">Generate a Paper</a></li>
         <li><a href="{{route('displayUsers')}}">Users</a></li>

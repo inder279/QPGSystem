@@ -39,8 +39,14 @@ class UserLoginController extends Controller
    	$user->save();
     //initially login
     //Auth::login($user);
-   	return redirect()->route('home');
+   	if(Auth::guard('user')->attempt(['email'=> $request['email'] , 'password'=> $request['password']])){
+         //success login user
+         return view('user');
+      }
+      //login failed
+      return redirect()->back();
    }
+   
 
    //user sign in
    public function postSignIn(Request $request){
