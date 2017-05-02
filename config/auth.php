@@ -46,7 +46,11 @@ return [
         ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin',
+            'provider' => 'admins',
+        ],
+        'coordinator' => [
+            'driver' => 'session',
+            'provider' => 'coordinators',
         ],
 
         
@@ -73,6 +77,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'admins' => [
+            'driver' => 'database',
+            'table' => 'admins',
+        ],
+        'coordinators' => [
+            'driver' => 'eloquent',
+            'model' => App\Coordinator::class,
         ],
 
         

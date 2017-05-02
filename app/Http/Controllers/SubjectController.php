@@ -20,10 +20,9 @@ class SubjectController extends Controller
    public function saveSubject(Request $request){
     	$subject = new Subject();
     	$subject->subject_name = $request['subject_name'];
-    	//$subject->question = $text;
-    	//$subject->save();
+    	$subject->save();
     	echo $subject;
     	
-    	//return redirect()->route('adminHome');
+    	return redirect()->route('admin');
     }
 }

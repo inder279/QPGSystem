@@ -34,13 +34,32 @@ QPG - Login or Signup
   </div><!-- /.container-fluid -->
 </nav>
 
-<div class="dropdown" align="right">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">User Login
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu dropdown-menu-right">
-    <li><a href="{{route('login')}}">User</a></li>
-    <li><a href="{{route('adminLogin')}}">Admin</a></li>
-    <li><a href="{{route('coordinatorLogin')}}">Coordinator</a></li>
-  </ul>
-</div>
+<div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">Login</p>
+                <div class="list-group">
+                    <a href="{{route('login')}}" class="list-group-item active">User</a>
+                    <a href="{{route('coordinatorLogin')}}" class="list-group-item">Coordinator</a>
+                    <a href="{{route('adminLogin')}}" class="list-group-item">Admin</a>
+                </div>
+
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                    <img class="img-responsive" src="http://resultncutoff.in/wp-content/uploads/2015/03/maths-ftr.jpg" alt="">
+                    <div class="caption-full">
+                        
+                        <h4><a href="#">Gnenerate a question paper</a>
+                        </h4>
+                        <p>Easily generate a question paper by registering as a user. </p>
+                        </div>
+                </div>
+            </div>
+            </div>
+            </div>
 @endsection

@@ -14,17 +14,16 @@ Add Question
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{route('admin')}}">Admin Home</a>
+      <a class="navbar-brand" href="#">Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ><a href="#">Subjects <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{route('addQuestion')}}">Add Question</a></li>
-        <li><a href="{{route('addQuestion')}}">Add Subject</a></li>
+        <li ><a href="{{route('displaySubjects')}}">Subjects <span class="sr-only">(current)</span></a></li>
+        
         <li><a href="#">Generate a Paper</a></li>
-        <li><a href="{{route('displayUsers')}}">Users</a></li>
+        
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -36,17 +35,33 @@ Add Question
 
 	<section class="row new-post">
 	<div class ="col-md-6 col-md-offset-3">
-	<header><h3>New subject</h3></header>
-		<form action="{{route('saveSubject')}}" method="post">
-			<div class = "form-group">
-				<label for="email">Add new subject </label>
-            <input class = "form-control" type="text" name="subject_name" id="subject_name">
+	<header><h3>Enter below details to generate a paper</h3></header>
+		<form action="{{route('generatePaper')}}" method="post">
+    
+    
+      <select class="form-control" name="subject_name">
+        @foreach($subjects as $subject)
+          <option value="{{$subject->subject_name}}">{{$subject->subject_name}}</option>
+        @endforeach
+      </select>
+
+
+
+      <div class="form-group ">
+            <label for="num_questions">Number of questions needed</label>
+            <input class = "form-control" type="text" name="num_questions" id="num_questions" value="">
       </div>
-			   <button type="submit" class="btn btn-primary">Add Subject</button>
+
+			<button type="submit" class="btn btn-primary">Generate</button>
       <input type="hidden" name="_token" value = "{{Session::token()}}">
 		</form>
 
 	</div>
+
+ 
+      
+
+    
 	</section>
 
 @endsection

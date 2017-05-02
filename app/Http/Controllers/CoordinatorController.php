@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use App\Admin;
+use App\Coordinator;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CoordinatorController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:admin');
+        $this->middleware('auth:Coordinator');
     }
 
     public function getUsers(){
@@ -17,7 +16,7 @@ class AdminController extends Controller
 	    return view('displayUsers', compact('users'));
    }
 
-   public function getAdminView(){
-   	return view('admin');
+   public function getCoordinatorView(){
+   	return view('subjectcoordinator');
    }
 }

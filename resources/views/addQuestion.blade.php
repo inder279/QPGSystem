@@ -14,7 +14,7 @@ Add Question
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{route('adminHome')}}">Admin Home</a>
+      <a class="navbar-brand" href="{{route('admin')}}">Admin Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +22,7 @@ Add Question
       <ul class="nav navbar-nav">
         <li ><a href="#">Subjects <span class="sr-only">(current)</span></a></li>
         <li><a href="{{route('addQuestion')}}">Add a Question</a></li>
-        <li><a href="#">Generate a Paper</a></li>
+        <li><a href="{{route('paperForm')}}">Generate a Paper</a></li>
         <li><a href="{{route('displayUsers')}}">Users</a></li>
       </ul>
       
@@ -40,6 +40,28 @@ Add Question
 			<div class = "form-group">
 				<textarea class="form-control" name="question" id ="question" rows = "7" placeholder ="Type here a new question"></textarea>
 			</div>
+
+      <header><h4>Input answers if the question is a MCQ</h4></header> 
+
+      <div class="form-group ">
+            <label for="answer1">Answer 1</label>
+            <input class = "form-control" type="text" name="answer1" id="answer1" value="">
+      </div>
+
+      <div class="form-group ">
+            <label for="answer2">Answer 2</label>
+            <input class = "form-control" type="text" name="answer2" id="answer2" value="">
+      </div>
+
+      <div class="form-group ">
+            <label for="answer3">Answer 3</label>
+            <input class = "form-control" type="text" name="answer3" id="answer3" value="">
+      </div>
+
+      <div class="form-group ">
+            <label for="answer4">Answer 4</label>
+            <input class = "form-control" type="text" name="answer4" id="answer1" value="">
+      </div>
 			<button type="submit" class="btn btn-primary">Save Question</button>
       <input type="hidden" name="_token" value = "{{Session::token()}}">
 		</form>

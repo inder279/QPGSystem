@@ -13,7 +13,7 @@ QPG - Admin interface
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand active" href="{{route('adminHome')}}">Admin Home</a>
+      <a class="navbar-brand active" href="#">Admin Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +21,7 @@ QPG - Admin interface
       <ul class="nav navbar-nav">
         <li ><a href="{{route('displaySubjects')}}">Subjects <span class="sr-only">(current)</span></a></li>
         <li><a href="{{route('addQuestion')}}">Add a Question</a></li>
-        <li><a href="#">Generate a Paper</a></li>
+        <li><a href="{{route('paperForm')}}">Generate a Paper</a></li>
         <li><a href="{{route('displayUsers')}}">Users</a></li>
       </ul>
       
@@ -32,11 +32,12 @@ QPG - Admin interface
     </div>
 </nav>
 
-
+    
     <div class="container-fluid">
 	    <div class="row ">
 		<div col-md-6 col-md-offset-3>
 		<h3>{{$users->total() }} total users</h3>
+    <section class="row new-post">
 			<ul class="list-group">
 
 				@foreach($users as $user)
@@ -54,10 +55,12 @@ QPG - Admin interface
 				@endforeach
 				{{$users->links()}}
 			</ul>
+      </section>
 		</div>
 	</div>
-</div>
-  </div><!-- /.container-fluid -->
+  </div>
+  
+  <!-- /.container-fluid -->
 @endsection
 
 

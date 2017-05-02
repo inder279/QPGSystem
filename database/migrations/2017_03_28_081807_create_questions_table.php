@@ -18,6 +18,11 @@ class CreateQuestionsTable extends Migration
             $table->increments('question_id');
             $table->text('question');
             $table->integer('subject_id');
+            $table->integer('is_mcq');          //boolean 1 for mcq , 0 for non mcq
+            $table->text('answer1');
+            $table->text('answer2');
+            $table->text('answer3');
+            $table->text('answer4');
             
         });
     }

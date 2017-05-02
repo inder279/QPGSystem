@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class CustomTests extends TestCase
+class UserTest extends TestCase
 {
 	use DatabaseMigrations;
 
@@ -23,7 +23,7 @@ class CustomTests extends TestCase
    		  $user->last_name = "Rajapakse";
    		  $user->password = "123123";
    		  $user->save();
-   		//testing for email
+   		 //testing for email
         $this->assertEquals($user->email,"sankaja@ex.com");
         //testing for first name
         $this->assertEquals($user->first_name,"Sankaja");
@@ -39,9 +39,9 @@ class CustomTests extends TestCase
     {
         $question = new Question();
       
-      $question->subject_id = 123;
-      $question->question = "Test 1";
-      //testing for question
+        $question->subject_id = 123;
+        $question->question = "Test 1";
+        //testing for question
         //testing for subject id 
         $question->save();
 
@@ -49,4 +49,6 @@ class CustomTests extends TestCase
         //see in database
         $this->assertDatabaseHas('questions',['question'=>"Test 1"]);
     }
+
+    
 }

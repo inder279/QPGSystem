@@ -15,7 +15,7 @@
 
 
 Route::group(['middleware' => ['web']], function () {
-
+    //home
 	Route::get('/', function () {
     return view('welcome');
 	})->name('home');
@@ -47,13 +47,24 @@ Route::group(['middleware' => ['web']], function () {
         ]);
 
 
-
+    //views for basic three types of users
     //user view
     Route::get('/user', [
         'uses'=> 'UserController@getUserView',
         'as' => 'user'
         ]);
 
+    //Coordinator view
+    Route::get('/coordinatorHome', [
+        'uses'=> 'CoordinatorController@getCoordinatorView',
+        'as' => 'coordinator'
+        ]);
+
+    //admin views
+    Route::get('/adminHome', [
+        'uses'=> 'AdminController@getAdminView',
+        'as' => 'admin'
+        ]);
      
 
     //add question view
@@ -99,10 +110,7 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'displayUsers'
         ]);
 
-    //admins view
-    Route::get('/adminHome', function () {
-        return view('admin');
-        })->name('adminHome');
+    
 
     //add subject view
     Route::get('/addSubjectView', function () {
@@ -120,6 +128,17 @@ Route::group(['middleware' => ['web']], function () {
     return view('addSubject');
     })->name('addSubject');
 
+    //generate paper form view
+    Route::get('/paperForm',[
+    'uses'=> 'QuestionPaperController@getPaperForm',
+        'as' => 'paperForm'
+    ]);
+
+    //generate paper
+    Route::post('/generatePaper', [
+        'uses'=> 'QuestionPaperController@generatePaper',
+        'as' => 'generatePaper'
+        ]);
     
 
 

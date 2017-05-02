@@ -20,7 +20,7 @@ QPG - User interface
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="{{route('displaySubjects')}}">Subjects <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Generate a Paper</a></li>
+        <li><a href="{{route('paperForm')}}">Generate a Paper</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">

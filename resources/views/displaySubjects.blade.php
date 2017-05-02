@@ -13,14 +13,14 @@ QPG - User interface
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{route('user')}}">Home</a>
+      <a class="navbar-brand" href="{{route('admin')}}">Admin Home</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Collect the nav links, forms, and other content `for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#">Subjects <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Generate a Paper</a></li>
+        <li><a href="{{route('paperForm')}}">Generate a Paper</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -30,26 +30,30 @@ QPG - User interface
   </div><!-- /.container-fluid -->
 
   <div class="container-fluid">
-      <div class="row ">
+      <div class="row align-middle">
       <div col-md-6 col-md-offset-3>
       <h3>Subjects registered in the system</h3>
-
+      
     <ul class="list-group">
 
         @foreach($subjects as $subject)
-        <li class="list-group-item" style="margin-top: 20px">
+        <div class="col-sm-12">
+        <li class="list-group-item col-sm-10" style="margin-top: 20px">
           <span>
             <b>Id : </b>{{$subject->subject_id}}   <b>Subject : </b>{{$subject->subject_name}} 
           </span>
           <span class="pull-right clearfix">
           Added  ({{$subject->created_at->diffForHumans()}})
-          <button class="btn btn-xs btn-primary" href="#">
+          <a href="{{route('home')}}"><button class="btn btn-xs btn-primary">
             Options
           </button>
+          </a>
           </span>
         </li>
+        </div>
         @endforeach
         {{$subjects->links()}}
       </ul>
+      
 </nav>
 @endsection

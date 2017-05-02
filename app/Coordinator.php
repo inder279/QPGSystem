@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Coordinator extends Model
+class Coordinator extends Authenticatable
 {
-    //
+    use Notifiable;
+
 }
