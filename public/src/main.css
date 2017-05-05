@@ -1,0 +1,34 @@
+h3{
+      text-align: center;
+      color: #0d4261;
+}
+div{
+      text-align: center;
+      color: #0d4261;
+
+}
+.navbar.navbar-default{
+      background: #2F4F4F;
+     
+}
+
+.navbar{
+	background: #2F4F4F;
+	color: white !important;
+}
+.white-text{
+	color: white;
+}
+li{
+      color:black; 
+}
+body{
+	background-color: #F4ECF7;
+}
+.dotted {border-style: dotted;}
+.content-admin{
+	padding: top-75px;
+}
+.carousel-caption .d-none .d-md-block{
+	color: 	#9400D3;
+}

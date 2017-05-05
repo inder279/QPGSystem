@@ -68,9 +68,10 @@ Route::group(['middleware' => ['web']], function () {
      
 
     //add question view
-    Route::get('/addQuestion', function () {
-    return view('addQuestion');
-    })->name('addQuestion');
+    Route::get('/addQuestion', [
+        'uses'=> 'AddQuestionController@addQuestionForm',
+        'as' => 'addQuestion'
+        ]);
 
     //save question route
     Route::post('/saveQuestion', [
@@ -138,6 +139,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/generatePaper', [
         'uses'=> 'QuestionPaperController@generatePaper',
         'as' => 'generatePaper'
+        ]);
+
+    //setting a coordin
+    Route::post('/setCoordinator', [
+        'uses'=> 'AdminController@setCoordinator',
+        'as' => 'setCoordinator'
         ]);
     
 

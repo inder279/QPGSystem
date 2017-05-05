@@ -3,33 +3,137 @@
 QPG - Admin interface
 @endsection
 @section('content')
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand active" href="#">Admin Home</a>
-    </div>
+  <!-- container section start -->
+  <section id="container" class="">
+      <header class="header dark-bg">
+            <div class="toggle-nav">
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+            </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="{{route('displaySubjects')}}">Subjects <span class="sr-only">(current)</span></a></li>
-        <li><a href="{{route('addQuestion')}}">Add Question</a></li>
-        <li><a href="{{route('addSubjectView')}}">Add Subject</a></li>
-        <li><a href="{{route('paperForm')}}">Generate a Paper</a></li>
-        <li><a href="{{route('displayUsers')}}">Users</a></li>
-      </ul>
+            <!--logo start-->
+            <a href="index.html" class="logo">QPG <span class="lite">Admin</span></a>
+            <!--logo end-->
+
+            <div class="nav search-row" id="top_menu">
+                                
+            </div>
+
+            <div class="top-nav notification-row">                
+                <!-- notificatoin dropdown start-->
+                <ul class="nav pull-right top-menu">
+                    
+                    
+                    <!-- user login dropdown start-->
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="profile-ava">
+                                <img alt="" src="img/admin_icon.png">
+                            </span>
+                            <span class="username">Sankaja</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <div class="log-arrow-up"></div>
+                            <li class="eborder-top">
+                                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon_chat_alt"></i> Chats</a>
+                            </li>
+                            <li>
+                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                            </li>
+                            <li>
+                                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                            </li>
+                            <li>
+                                <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- user login dropdown end -->
+                </ul>
+                <!-- notificatoin dropdown end-->
+            </div>
+      </header>      
+      <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">                
+                  <li class="active">
+                      <a class="" href="index.html">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+          <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="glyphicon glyphicon-user"></i>
+                          <span>Users</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{route('displayUsers')}}">Normal users</a></li>                          
+                          <li><a class="" href="#">Coordinators</a></li>
+                      </ul>
+                  </li>
+                         
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="glyphicon glyphicon-book"></i>
+                          <span>Subjects</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{route('displaySubjects')}}">View Subjects</a></li>
+                          <li><a class="" href="{{route('addSubjectView')}}">Add a subject</a></li>
+                          
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="glyphicon glyphicon-question-sign"></i>
+                          <span>Questions</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="#">Questions</a></li>                          
+                          <li><a class="" href="{{route('addQuestion')}}">Add a question</a></li>
+                      </ul>
+                  </li> 
+                  <li>
+                      <a class="" href="{{route('paperForm')}}">
+                          <i class="icon_documents_alt"></i>
+                          <span>Generate a paper</span>
+                      </a>
+                  </li>
+                 
+                  
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+      <section id="main-content">
+          <section class="wrapper">            
+              <!--overview start-->
+        <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-laptop"></i>Dashboard</li>                
+          </ol>
+        </div>
+      </div>
+      </section>
       
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{route('home')}}">Log out</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 @endsection

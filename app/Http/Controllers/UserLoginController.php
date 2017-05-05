@@ -25,7 +25,6 @@ class UserLoginController extends Controller
    	$password = bcrypt($request['password']);
     //initially created a user type user
     
-
    	$user = new User();
 
    	//initializing user object

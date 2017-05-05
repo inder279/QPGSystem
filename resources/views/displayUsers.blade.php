@@ -6,7 +6,7 @@ QPG - Admin interface
 <nav class="navbar navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+    <div class="navbar-header white-text">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -47,9 +47,11 @@ QPG - Admin interface
 					</span>
 					<span class="pull-right clearfix">
 					Joined({{$user->created_at->diffForHumans()}})
-					<button class="btn btn-xs btn-primary" href="#">
+          <a href="{{route('setCoordinator')}}">
+					<button class="btn btn-xs btn-primary" >
 						Set as a Coordinator
 					</button>
+          </a>
 					</span>
 				</li>
 				@endforeach

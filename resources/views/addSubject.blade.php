@@ -23,7 +23,7 @@ Add Question
         <li ><a href="#">Subjects <span class="sr-only">(current)</span></a></li>
         <li><a href="{{route('addQuestion')}}">Add Question</a></li>
         <li><a href="{{route('addQuestion')}}">Add Subject</a></li>
-        <li><a href="#">Generate a Paper</a></li>
+        <li><a href="{{route('paperForm')}}">Generate a Paper</a></li>
         <li><a href="{{route('displayUsers')}}">Users</a></li>
       </ul>
       

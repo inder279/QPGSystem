@@ -28,8 +28,8 @@ QPG - User interface
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-
-  <div class="container-fluid">
+</nav>
+  <div class="container">
       <div class="row align-middle">
       <div col-md-6 col-md-offset-3>
       <h3>Subjects registered in the system</h3>
@@ -38,7 +38,7 @@ QPG - User interface
 
         @foreach($subjects as $subject)
         <div class="col-sm-12">
-        <li class="list-group-item col-sm-10" style="margin-top: 20px">
+        <li class="list-group-item col-sm-10" style="margin-top: 20px; color:black; text-align: left;">
           <span>
             <b>Id : </b>{{$subject->subject_id}}   <b>Subject : </b>{{$subject->subject_name}} 
           </span>

@@ -20,4 +20,8 @@ class AdminController extends Controller
    public function getAdminView(){
    	return view('admin');
    }
+
+   public function setCoordinator(Request $request){
+      echo $request->first_name;
+   }
 }

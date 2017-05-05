@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 use App\Question;
 use Illuminate\Http\Request;
+use App\Subject;
+use Illuminate\Support\Facades\DB;
 
 class AddQuestionController extends Controller
 {
     public function saveQuestion(Request $request){
+        $subject_id = DB::select('select subject_id from subjects where subject_name = :subject_name', ['subject_name' => $request->subject_name]);
+        $id = (int) $subject_id[0]->subject_id;
     	$question = new Question();
     	$text = $request['question'];
     	$answer1 = $request['answer1'];
@@ -25,12 +29,18 @@ class AddQuestionController extends Controller
     	$question->answer2 = $answer2;
     	$question->answer3 = $answer3;
     	$question->answer4 = $answer4;
-    	$question->subject_id = 1;
+    	$question->subject_id = $id;
     	$question->question = $text;
     	$question->save();
     	
     	
+        $subjects = Subject::all(['subject_name']);
+        return view('addQuestion', compact('subjects',$subjects));
+    }
 
+    public function addQuestionForm(){
+        $subjects = Subject::all(['subject_name']);
+        return view('addQuestion', compact('subjects',$subjects));
     }
 
 

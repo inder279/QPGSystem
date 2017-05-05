@@ -37,8 +37,18 @@ Add Question
 	<div class ="col-md-6 col-md-offset-3">
 	<header><h3>Add new question</h3></header>
 		<form action="{{route('saveQuestion')}}" method="post">
+
+    <label for="Subject">Select the subject</label>
+    <select class="form-control" name="subject_name">
+        @foreach($subjects as $subject)
+          <option value="{{$subject->subject_name}}">{{$subject->subject_name}}</option>
+        @endforeach
+      </select>
+
+
 			<div class = "form-group">
-				<textarea class="form-control" name="question" id ="question" rows = "7" placeholder ="Type here a new question"></textarea>
+      <label for="question">Input question here</label>
+				<textarea class="form-control" name="question" id ="question" rows = "3" placeholder ="Type here a new question"></textarea>
 			</div>
 
       <header><h4>Input answers if the question is a MCQ</h4></header> 
