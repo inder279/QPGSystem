@@ -14,6 +14,10 @@ class QuestionPaperController extends Controller
     	$subjects = Subject::all(['subject_name']);
     	return view('generatePaperForm', compact('subjects',$subjects));
     }
+    public function getUserPaperForm(){
+        $subjects = Subject::all(['subject_name']);
+        return view('userGeneratePaperForm', compact('subjects',$subjects));
+    }
 
 
     public function generatePaper(Request $request){
@@ -26,7 +30,7 @@ class QuestionPaperController extends Controller
     	echo "</br>";
     	echo "</br>";
     	$num=1;
-        if($request->num_questions>0 && $request->num_questions <= 100 && sizeof($questions)> $request->num_questions){
+        if($request->num_questions>0 && $request->num_questions <= 100 && sizeof($questions)>= $request->num_questions){
             
     	foreach ($questions as $question) {
     		echo $num;

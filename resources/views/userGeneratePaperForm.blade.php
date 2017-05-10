@@ -11,7 +11,7 @@ QPG - User interface
             </div>
 
             <!--logo start-->
-            <a href="{{route('admin')}}" class="logo">QPG <span class="lite">Admin</span></a>
+            <a href="{{route('admin')}}" class="logo">QPG <span class="lite">User</span></a>
             <!--logo end-->
 
             <div class="top-nav notification-row">                
@@ -25,13 +25,13 @@ QPG - User interface
                             <span class="profile-ava">
                                 <img alt="" src="img/admin_icon.png">
                             </span>
-                            <span class="username">Sankaja</span>
+                            <span class="username">User</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                            <li>
-                                <a href="{{route('adminLogOut')}}"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="{{route('userLogOut')}}"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -47,22 +47,11 @@ QPG - User interface
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
-                  <li class="active">
+                  <li>
                       <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
-                  </li>
-          <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="glyphicon glyphicon-user"></i>
-                          <span>Users</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="{{route('displayUsers')}}">Normal users</a></li>                          
-                          <li><a class="" href="#">Coordinators</a></li>
-                      </ul>
                   </li>
                          
                   <li class="sub-menu">
@@ -72,23 +61,13 @@ QPG - User interface
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="active" href="{{route('displaySubjects')}}">View Subjects</a></li>
-                          <li><a class="" href="{{route('addSubjectView')}}">Add a subject</a></li>
+                          <li><a class="" href="{{route('userDisplaySubjects')}}">View Subjects</a></li>
                           
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="glyphicon glyphicon-question-sign"></i>
-                          <span>Questions</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">                          
-                          <li><a class="" href="{{route('addQuestion')}}">Add a question</a></li>
-                      </ul>
-                  </li> 
-                  <li>
-                      <a class="" href="{{route('paperForm')}}">
+                   
+                  <li class="active">
+                      <a class="" href="">
                           <i class="icon_documents_alt"></i>
                           <span>Generate a paper</span>
                       </a>
@@ -102,36 +81,38 @@ QPG - User interface
       <!--sidebar end-->
       <section id="main-content">
           <section class="wrapper">
-  <div class="container">
-      <div class="row align-middle">
-      <div col-md-6 col-md-offset-3>
-      <h3>Subjects registered in the system</h3>
-      
-    <ul class="list-group">
+          <section class="row new-post">
+          <div class ="col-md-6 col-md-offset-3">
+          <header><h3>Enter below details to generate a paper</h3></header>
+            <form action="{{route('generatePaper')}}" method="post">
+            
+            
+              <select class="form-control" name="subject_name">
+                @foreach($subjects as $subject)
+                  <option value="{{$subject->subject_name}}">{{$subject->subject_name}}</option>
+                @endforeach
+              </select>
 
-        @foreach($subjects as $subject)
-        <div class="col-sm-12">
-        <li class="list-group-item col-sm-10" style="margin-top: 20px; color:black; text-align: left;">
-          <span>
-            <b>Id : </b>{{$subject->subject_id}}   <b>Subject : </b>{{$subject->subject_name}} 
-          </span>
-          <span class="pull-right clearfix">
-          Added  ({{$subject->created_at->diffForHumans()}})
-          <a href="{{route('home')}}"><button class="btn btn-xs btn-primary">
-            Options
-          </button>
-          </a>
-          </span>
-        </li>
-        </div>
-        @endforeach
-        {{$subjects->links()}}
-      </ul>
+
+
+      <div class="form-group ">
+            <label for="num_questions">Number of questions needed</label>
+            <input class = "form-control" type="text" name="num_questions" id="num_questions" value="">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Generate</button>
+      <input type="hidden" name="_token" value = "{{Session::token()}}">
+    </form>
+
+  </div>
+
+ 
       
-</div>
-</div>
-</div>
-</section>
-</section>
-</section>
+
+    
+  </section>
+      </section>
+      <!--sidebar end-->
+
+   
 @endsection

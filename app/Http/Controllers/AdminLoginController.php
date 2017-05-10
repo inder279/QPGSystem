@@ -15,13 +15,13 @@ class AdminLoginController extends Controller
 
    //admin sign in
    public function postSignIn(Request $request){
-      if(Auth::attempt(['email'=> $request['email'] , 'password'=> $request['password']])){
+      if(Auth::guard('admin')->attempt(['email'=> $request['email'] , 'password'=> $request['password']])){
          //success login admin
          return redirect()->route('admin');
       }
       echo "failed";
       //login failed -> redirected to home
-      return redirect()->route('home');
+      return redirect()->back();
       
    }
 }

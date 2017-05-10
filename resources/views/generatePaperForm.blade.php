@@ -70,7 +70,7 @@ Generate paper
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
-                  <li class="active">
+                  <li class="">
                       <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
@@ -99,8 +99,8 @@ Generate paper
                           
                       </ul>
                   </li>
-                  <li>
-                      <a class="" href="widgets.html">
+                  <li class="active">
+                      <a class="active" href="{{route('paperForm')}}">
                           <i class="icon_documents_alt"></i>
                           <span>Generate a paper</span>
                       </a>

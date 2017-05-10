@@ -11,7 +11,7 @@ QPG - User interface
             </div>
 
             <!--logo start-->
-            <a href="{{route('admin')}}" class="logo">QPG <span class="lite">Admin</span></a>
+            <a href="{{route('admin')}}" class="logo">QPG <span class="lite">User</span></a>
             <!--logo end-->
 
             <div class="top-nav notification-row">                
@@ -31,7 +31,7 @@ QPG - User interface
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                            <li>
-                                <a href="{{route('adminLogOut')}}"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="{{route('userLogOut')}}"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -47,48 +47,27 @@ QPG - User interface
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
-                  <li class="active">
+                  <li >
                       <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
-          <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="glyphicon glyphicon-user"></i>
-                          <span>Users</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="{{route('displayUsers')}}">Normal users</a></li>                          
-                          <li><a class="" href="#">Coordinators</a></li>
-                      </ul>
-                  </li>
                          
-                  <li class="sub-menu">
+                  <li class="sub-menu active">
                       <a href="javascript:;" class="">
                           <i class="glyphicon glyphicon-book"></i>
                           <span>Subjects</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="active" href="{{route('displaySubjects')}}">View Subjects</a></li>
-                          <li><a class="" href="{{route('addSubjectView')}}">Add a subject</a></li>
+                          <li class="active"><a class="" href="#">View Subjects</a></li>
                           
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="glyphicon glyphicon-question-sign"></i>
-                          <span>Questions</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">                          
-                          <li><a class="" href="{{route('addQuestion')}}">Add a question</a></li>
-                      </ul>
-                  </li> 
+                   
                   <li>
-                      <a class="" href="{{route('paperForm')}}">
+                      <a class="" href="">
                           <i class="icon_documents_alt"></i>
                           <span>Generate a paper</span>
                       </a>
@@ -100,7 +79,7 @@ QPG - User interface
           </div>
       </aside>
       <!--sidebar end-->
-      <section id="main-content">
+<section id="main-content">
           <section class="wrapper">
   <div class="container">
       <div class="row align-middle">
@@ -134,4 +113,4 @@ QPG - User interface
 </section>
 </section>
 </section>
-@endsection
+      @endsection

@@ -34,11 +34,7 @@ Route::group(['middleware' => ['web']], function () {
     	]);
 
     
-    //user sign in ->login
-    Route::post('/signinControl', [
-        'uses'=> 'UserLoginController@postSignIn',
-        'as' => 'signinControl'
-        ]);
+    
 
     //save subject route
     Route::post('/saveSubject', [
@@ -60,7 +56,7 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'coordinator'
         ]);
 
-    //admin views
+    //admin view
     Route::get('/adminHome', [
         'uses'=> 'AdminController@getAdminView',
         'as' => 'admin'
@@ -79,10 +75,12 @@ Route::group(['middleware' => ['web']], function () {
         'as' => 'saveQuestion'
         ]);
 
-    //user log out
+    
+
+    //admin log out
     Route::get('/logOut', [
-        'uses'=> 'UserController@logOut',
-        'as' => 'userLogOut'
+        'uses'=> 'AdminController@logOut',
+        'as' => 'adminLogOut'
         ]);
 
     //sign in view
@@ -146,8 +144,38 @@ Route::group(['middleware' => ['web']], function () {
         'uses'=> 'AdminController@setCoordinator',
         'as' => 'setCoordinator'
         ]);
-    
 
+    //promote users
+    Route::get('/promoteUser', [
+        'uses'=> 'AdminController@promoteUser',
+        'as' => 'promoteUser'
+        ]);
+    
+    /*
+    User route section
+
+    */
+
+    //user sign in ->login
+    Route::post('/signinControl', [
+        'uses'=> 'UserLoginController@postSignIn',
+        'as' => 'signinControl'
+        ]);
+    //user log out
+    Route::get('/userLogOut', [
+        'uses'=> 'UserController@logOut',
+        'as' => 'userLogOut'
+        ]);
+    //user subjects displaying
+    Route::get('/userDisplaySubjects', [
+        'uses'=> 'SubjectController@userGetSubjects',
+        'as' => 'userDisplaySubjects'
+        ]);
+
+    Route::get('/userPaperForm',[
+    'uses'=> 'QuestionPaperController@getUserPaperForm',
+        'as' => 'userPaperForm'
+    ]);
 
     });
 

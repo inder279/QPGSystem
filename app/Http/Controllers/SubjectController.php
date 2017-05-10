@@ -25,4 +25,12 @@ class SubjectController extends Controller
     	
     	return redirect()->route('admin');
     }
+
+    public function userGetSubjects(){
+      //$subjects = Subject::paginate(10);
+      
+      $subjects = Subject::paginate(10);
+      //echo $subjects;
+      return view('userDisplaySubjects', compact('subjects'));
+   }
 }
