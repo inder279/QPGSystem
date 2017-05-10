@@ -25,4 +25,14 @@ li{
 body{
 	background-color: #F4ECF7;
 }
+.form-width{
+      width: 70%;
+}
+
+.error-display{
+      background-color:#ffe6e6;
+      color:#660000;
+      text-align: center;
+
+}
 

@@ -15,6 +15,8 @@ class AdminLoginController extends Controller
 
    //admin sign in
    public function postSignIn(Request $request){
+      $this->validate($request,['email'=>'required|email','password'=>'required|min:4']);
+
       if(Auth::guard('admin')->attempt(['email'=> $request['email'] , 'password'=> $request['password']])){
          //success login admin
          return redirect()->route('admin');

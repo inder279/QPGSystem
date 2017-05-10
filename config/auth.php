@@ -84,7 +84,7 @@ return [
         ],
         'coordinators' => [
             'driver' => 'eloquent',
-            'model' => App\Coordinator::class,
+            'model' => App\User::class,
         ],
 
         

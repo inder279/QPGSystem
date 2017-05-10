@@ -3,9 +3,16 @@
 QPG - Admin
 @endsection
 @section('content')
-@if(count($errors)>0)
+ 
+<div class="col-md-6">
+    
+    <h3> Admin Log in</h3>
+            
+
+
+            @if(count($errors)>0)
         <div class="row"></div>
-            <div class="col-md-16"></div>
+            <div class="col-md-16 error-display"></div>
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>
@@ -13,10 +20,7 @@ QPG - Admin
                         </li>
                     @endforeach
                 </ul>
-@endif 
-<div class="col-md-6">
-    <h3> Admin Log in</h3>
-        
+        @endif
             <div class="form-group {{$errors->has('email') ? 'has-error' : ''}}">
             <form action="{{route('adminLoginControl')}}" method="post">
             
@@ -33,5 +37,6 @@ QPG - Admin
             <button type="Submit" class="btn btn-primary">Log in</button>
             <input type="hidden" name="_token" value = "{{Session::token()}}">
         </form>
+    </div>
     </div>
 @endsection

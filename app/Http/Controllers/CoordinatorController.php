@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 use App\Coordinator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CoordinatorController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:Coordinator');
+        //$this->middleware('auth:Coordinator');
     }
 
     public function getUsers(){
@@ -17,6 +18,6 @@ class CoordinatorController extends Controller
    }
 
    public function getCoordinatorView(){
-   	return view('subjectcoordinator');
+   	return view('coordinator');
    }
 }

@@ -33,7 +33,11 @@ Route::group(['middleware' => ['web']], function () {
     	'as' => 'adminLoginControl'
     	]);
 
-    
+    //admin sign in ->login
+    Route::post('/coordinatorLoginControl', [
+        'uses'=> 'CoordinatorLoginController@postSignIn',
+        'as' => 'coordinatorLoginControl'
+        ]);
     
 
     //save subject route
@@ -53,7 +57,7 @@ Route::group(['middleware' => ['web']], function () {
     //Coordinator view
     Route::get('/coordinatorHome', [
         'uses'=> 'CoordinatorController@getCoordinatorView',
-        'as' => 'coordinator'
+        'as' => 'coordinatorHome'
         ]);
 
     //admin view
@@ -152,9 +156,9 @@ Route::group(['middleware' => ['web']], function () {
         ]);
 
     //promote users to coordinator
-    Route::get('/promoteToCoorninator', [
-        'uses'=> 'AdminController@promoteToCoorninator',
-        'as' => 'promoteToCoorninator'
+    Route::get('/promoteToCoordinator', [
+        'uses'=> 'AdminController@promoteToCoordinator',
+        'as' => 'promoteToCoordinator'
         ]);
     
     /*

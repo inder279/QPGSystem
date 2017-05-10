@@ -103,7 +103,7 @@ QPG - Admin interface
       <section id="main-content">
           <section class="wrapper">
     
-    <div class="container-fluid">
+    <div class="container form-width">
 	    <div class="row ">
 		<div col-md-6 col-md-offset-3>
 		<h3>{{$users->total() }} total users</h3>
@@ -125,7 +125,7 @@ QPG - Admin interface
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="{{route('promoteToAdmin')}}?user_id={{$user->id}}" id="{{$user}}">make admin</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="{{route('promoteToCoordinator')}}?user_id={{$user->id}}" id="{{$user}}>make coordinator</a></li>
+              <li><a href="{{route('promoteToCoordinator')}}?user_id={{$user->id}}" id="{{$user}}">make coordinator</a></li>
             </ul>
           </div>
 					</span>

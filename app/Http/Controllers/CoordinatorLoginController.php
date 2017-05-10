@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 use App\Coordinator;
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+//use Auth;
 
 class CoordinatorLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:coordinator');
+        //$this->middleware('guest:coordinator');
     }
 
 

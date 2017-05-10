@@ -18,7 +18,7 @@ QPG - Login or Signup
     <h3>Coordinator Log in</h3>
         
             <div class="form-group {{$errors->has('email') ? 'has-error' : ''}}">
-            <form action="{{route('signinControl')}}" method="post">
+            <form action="{{route('coordinatorLoginControl')}}" method="post">
             
             
         
