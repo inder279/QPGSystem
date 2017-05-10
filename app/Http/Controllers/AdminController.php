@@ -24,7 +24,7 @@ class AdminController extends Controller
    }
 
 
-   public function promoteUser(){
+   public function promoteToAdmin(){
       $user_id = $_GET['user_id'];
       $user = DB::select('select * from users where id = :id', ['id' => $user_id]);
       $created = $user[0]->created_at;
@@ -33,6 +33,19 @@ class AdminController extends Controller
       $email = $user[0]->email;
       $password = $user[0]->password;
       DB::insert('insert into admins (first_name, last_name, email, password, created_at) values (?, ?, ?, ?, ?)', [$first_name, $last_name, $email, $password, $created]);
+      $deleted = DB::delete('delete from users where id = :id', ['id' => $user_id]);
+      echo $user[0]->first_name;
+   }
+
+   public function promoteToCoordinator(){
+      $user_id = $_GET['user_id'];
+      $user = DB::select('select * from users where id = :id', ['id' => $user_id]);
+      $created = $user[0]->created_at;
+      $first_name = $user[0]->first_name;
+      $last_name = $user[0]->last_name;
+      $email = $user[0]->email;
+      $password = $user[0]->password;
+      DB::insert('insert into coordinators (first_name, last_name, email, password, created_at) values (?, ?, ?, ?, ?)', [$first_name, $last_name, $email, $password, $created]);
       $deleted = DB::delete('delete from users where id = :id', ['id' => $user_id]);
       echo $user[0]->first_name;
    }

@@ -146,9 +146,15 @@ Route::group(['middleware' => ['web']], function () {
         ]);
 
     //promote users
-    Route::get('/promoteUser', [
-        'uses'=> 'AdminController@promoteUser',
-        'as' => 'promoteUser'
+    Route::get('/promoteToAdmin', [
+        'uses'=> 'AdminController@promoteToAdmin',
+        'as' => 'promoteToAdmin'
+        ]);
+
+    //promote users to coordinator
+    Route::get('/promoteToCoorninator', [
+        'uses'=> 'AdminController@promoteToCoorninator',
+        'as' => 'promoteToCoorninator'
         ]);
     
     /*

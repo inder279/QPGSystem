@@ -113,18 +113,23 @@ QPG - Admin interface
 				@foreach($users as $user)
 				<li class="list-group-item" style="margin-top: 20px">
 					<span>
-						{{$user->first_name}} {{$user->last_name}}
+						<b>{{$user->first_name}} {{$user->last_name}}</b>
 					</span>
-					<span class="pull-right clearfix">
 					Joined({{$user->created_at->diffForHumans()}})
-          
-          <a href="{{route('promoteUser')}}?user_id={{$user->id}}" id="{{$user}}">
-					<button class="btn btn-xs btn-primary" >
-						Promote
-					</button>
-          </a>
-          
+          <span class="pull-right clearfix">
+          <div class="dropdown">
+            <button class="btn btn-xs btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Options
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="{{route('promoteToAdmin')}}?user_id={{$user->id}}" id="{{$user}}">make admin</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="{{route('promoteToCoordinator')}}?user_id={{$user->id}}" id="{{$user}}>make coordinator</a></li>
+            </ul>
+          </div>
 					</span>
+
 				</li>
         <input type="hidden" name="_token" value = "{{Session::token()}}">
 				@endforeach
